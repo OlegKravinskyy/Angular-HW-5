@@ -1,0 +1,25 @@
+<div class="discount">
+  <button (click)="onApplyDiscount()">Discount</button>
+</div>
+
+<div class="product">
+  <h2>Selected product details</h2>
+  <ul *ngIf="selectedProducts">
+    <li>Name: {{ selectedProducts.name }}</li>
+    <li>Price: {{ selectedProducts.price }}</li>
+    <li>Descriptions: {{ selectedProducts.description }}</li>
+  </ul>
+  <p *ngIf="!selectedProducts">Select a product to view details</p>
+</div>
+
+<div class="product">
+  <app-card-block
+    *ngFor="let product of products"
+    [product]="product"
+    [discountedPrice]="isDiscounted ? product.price - 15 : product.price"
+    (viewDetails)="displayProductDetail($event)"
+  >
+    <b #colorElement>{{ product.color }}</b>
+  </app-card-block>
+</div>
+=============================================================================

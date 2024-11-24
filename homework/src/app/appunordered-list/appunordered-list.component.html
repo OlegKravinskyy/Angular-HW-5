@@ -1,0 +1,10 @@
+<h2>Task4</h2>
+
+<app-unordered-list [list]="list"></app-unordered-list>
+<app-list-item>
+  <ng-content *ngFor="let item of list"
+    ><ul>
+      <li>{{ item }}</li>
+    </ul></ng-content
+  >
+</app-list-item>
